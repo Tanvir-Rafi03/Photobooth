@@ -1,12 +1,25 @@
+/* root variables */
+:root {
+  --main-text: #555555;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 /* body */
 body {
   background-color: #f5f4f0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
   padding: 1rem 0 2rem;
   gap: 0;
+  overflow-x: hidden;
 }
 
 /* typography */
@@ -28,6 +41,7 @@ p {
   position: relative;
   width: 250px;
   margin-bottom: -3rem;
+  cursor: pointer;
 }
 
 .logo img {
@@ -58,14 +72,6 @@ p {
   align-items: center;
 }
 
-/* mobile */
-@media (max-width: 768px) {
-  #canvasContainer {
-    width: 80vw;
-    max-width: 90vw;
-  }
-}
-
 /* canvas */
 canvas {
   width: 100%;
@@ -73,15 +79,18 @@ canvas {
   background: #fff;
   cursor: grab;
   display: block;
+  touch-action: none;
 }
 
 /* sticker buttons container */
 .sticker-btns {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   width: 100%;
+  gap: 4px;
 }
 
 .sticker-btns button {
@@ -110,16 +119,22 @@ button {
   text-align: center;
   transition: transform 0.2s ease-in-out;
   padding: 0.4rem 0.5rem;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 }
 
 button:hover {
   transform: scale(1.05);
 }
 
+button:active {
+  transform: scale(0.97);
+}
+
 /* sticker buttons */
 .sticker-btn {
-  width: 25%;
-  aspect-ratio: 75/60;
+  width: 70px;
+  height: 56px;
   background-size: cover;
   background-position: center;
   background-color: transparent;
@@ -128,8 +143,7 @@ button:hover {
   cursor: pointer;
   margin: 0;
   font-size: 0;
-  padding-left: 1vw;
-  padding-right: 1vw;
+  padding: 0;
 }
 
 /* individual sticker urls */
@@ -148,15 +162,8 @@ button:hover {
   justify-content: flex-start;
   width: 30vw;
   gap: 1rem;
-  margin-top: 0vh;
+  margin-top: 0;
   padding: 0;
-}
-
-/* mobile heading */
-@media (max-width: 768px) {
-  .heading-content {
-    width: 90vw;
-  }
 }
 
 /* menu header */
@@ -168,4 +175,40 @@ button:hover {
   background-repeat: no-repeat;
   background-position: center;
   margin: 0;
+}
+
+/* mobile */
+@media (max-width: 768px) {
+  .logo {
+    width: 180px;
+    margin-bottom: -1.5rem;
+  }
+
+  h1 {
+    font-size: 1.4rem;
+  }
+
+  .heading-content {
+    width: 92vw;
+    gap: 0.5rem;
+  }
+
+  #canvasContainer {
+    width: 92vw;
+    max-width: 92vw;
+    margin-top: 12px;
+  }
+
+  .sticker-btn {
+    width: 50px;
+    height: 40px;
+  }
+
+  .button-container {
+    padding-top: 1vh;
+  }
+
+  button {
+    font-size: 1rem;
+  }
 }

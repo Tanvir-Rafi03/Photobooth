@@ -25,9 +25,11 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
   padding: 0 0 2rem 0;
   gap: 0;
+  overflow-x: hidden;
 }
 
 /* logo */
@@ -35,6 +37,7 @@ body {
   position: relative;
   width: 250px;
   margin-top: 1rem;
+  cursor: pointer;
 }
 
 .logo img {
@@ -48,6 +51,7 @@ body {
   flex-direction: column;
   align-items: center;
   width: 37.75rem;
+  max-width: 95vw;
   gap: 0.5rem;
   margin-top: -2rem;
   padding-top: 0;
@@ -56,6 +60,7 @@ body {
 .photobooth-container {
   position: relative;
   width: var(--container-width);
+  max-width: 90vw;
   aspect-ratio: var(--container-aspect-ratio);
   display: flex;
   flex-direction: column;
@@ -65,20 +70,14 @@ body {
   margin-top: 0;
 }
 
-@media screen and (max-width: 768px) {
-  .photobooth-container {
-    width: 90vw;
-  }
-}
-
 /* menu page */
 .menu-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: top;
+  justify-content: flex-start;
   width: 37.75rem;
-  height: 100vh;
+  max-width: 95vw;
   gap: 0.75rem;
   margin-top: 3rem;
   padding: 0;
@@ -86,6 +85,7 @@ body {
 
 .menu-header {
   width: 20rem;
+  max-width: 80vw;
   aspect-ratio: 517 / 68;
   background-image: url('../Assets/fish-photobooth/menupage/Header.png');
   background-size: cover;
@@ -188,10 +188,16 @@ button {
   border-radius: 0.5rem;
   text-align: center;
   transition: transform 0.2s ease-in-out;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 }
 
 button:hover {
   transform: scale(1.05);
+}
+
+button:active {
+  transform: scale(0.97);
 }
 
 #select-button {
@@ -211,11 +217,25 @@ button:hover {
   align-items: center;
   gap: 0.56rem;
   width: 20rem;
+  max-width: 80vw;
   height: 5rem;
   padding: 0.5rem 1rem;
 }
 
+/* mobile */
 @media screen and (max-width: 768px) {
+  .logo {
+    width: 180px;
+  }
+
+  .home-container {
+    margin-top: -1rem;
+  }
+
+  .menu-container {
+    margin-top: 1.5rem;
+  }
+
   #select-button {
     width: 8rem;
     height: 3.2rem;
@@ -225,6 +245,6 @@ button:hover {
   }
 
   button {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
   }
 }
