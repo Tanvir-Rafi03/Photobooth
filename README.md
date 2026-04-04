@@ -1,6 +1,10 @@
 # Fish Photobooth
 
-A fish-themed photobooth desktop app built with Electron.
+A fish-themed photobooth app — take photos, add stickers, and download your photo strip!
+
+## Try It Online
+
+**[Open Fish Photobooth](https://photobooth-two-phi.vercel.app)** — works on desktop and mobile browsers.
 
 ## Download & Run (Mac)
 
